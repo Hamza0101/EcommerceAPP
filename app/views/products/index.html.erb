@@ -1,0 +1,24 @@
+
+<%= link_to 'New product', new_product_path() %>
+<div class="container">
+<div class="card-deck">
+  <% @products.each do |product| %>
+
+    <div class=" row">
+      <div class="col-lg-6 mb-4">
+        <div class="card " style="width:400px">
+          <%= link_to image_tag product.attached_image , class: 'img-fluid' if product.attached_image.attached? %>
+          <div class="card-body">
+            <h4 class="card-title"><%= product.title %></h4>
+            <% description=product.description %>
+            <p class="card-text"><%= description%></p>
+              <%= link_to 'Show', product, class: 'btn btn-secondary' %>
+              <%= link_to 'Edit', edit_product_path(product) %>
+              <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+ </div>
+</div>

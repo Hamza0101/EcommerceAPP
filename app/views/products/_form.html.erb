@@ -1,0 +1,16 @@
+<div class="form">
+  <%= form_with(model: product) do |form| %>
+    <div class="field form-group">
+      <%= form.text_field :title, class: "form-control", placeholder: 'Title'%>
+    </div>
+    <div class="field form-group">
+      <%= form.text_area :description, class: "form-control", placeholder: "Description"%>
+    </div>
+     <div class="field form-group">
+      <%= form.file_field :attached_image, class: "form-control", placeholder: 'Image'%>
+    </div>
+    <div class="actions">
+      <%= form.submit class: 'btn btn-secondary'%>
+    </div>
+  <% end %>
+</div>
