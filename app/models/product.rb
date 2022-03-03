@@ -1,7 +1,8 @@
 class Product < ApplicationRecord
   belongs_to :user
 
-  has_many :reviews, dependent: :delete_all
+  has_many :reviews, dependent: :destroy
+  has_many :line_items, dependent: :destroy
 
   has_one_attached :attached_image, dependent: :destroy
 

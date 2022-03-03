@@ -32,7 +32,7 @@ class ReviewsController < ApplicationController
 
   def set_review
     @review = @product.reviews.find(params[:review_id])
-    if @review.user_id == current_user.id
+    if @review.user_id != current_user.id
       redirect_to product_path(@product), notice: 'You are not authorize'
     end
   end

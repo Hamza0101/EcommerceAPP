@@ -3,6 +3,8 @@
     <%= link_to image_tag @product.attached_image , class: 'img-fluid' if @product.attached_image.attached? %>
     <h1 class="display-6"><%= @product.title %></h1>
     <p class="lead"><%= @product.description %></p>
+    <p class="lead"><%= @product.price %> USD</p>
+    <%= button_to "Add #{@product.title} to cart", line_items_path(:product_id => @product.id) %>
     <%= link_to 'Back', products_path, class:"btn btn-secondary" %> |
     <%= link_to 'Edit', edit_product_path(@product), class:"btn btn-secondary" %>
 

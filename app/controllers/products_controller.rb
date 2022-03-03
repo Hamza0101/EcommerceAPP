@@ -38,6 +38,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:serial_no, :attached_image, :title, :description)
+    params.require(:product).permit(:serial_no, :attached_image, :title, :description, :price)
   end
 end

@@ -12,9 +12,11 @@
             <h4 class="card-title"><%= product.title %></h4>
             <% description=product.description %>
             <p class="card-text"><%= description%></p>
+            <p><%= product.price %> USD</p>
               <%= link_to 'Show', product, class: 'btn btn-secondary' %>
-              <%= link_to 'Edit', edit_product_path(product) %>
-              <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= link_to 'Edit', edit_product_path(product), class: 'btn btn-secondary' %>
+              <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-secondary' %>
+
           </div>
         </div>
       </div>

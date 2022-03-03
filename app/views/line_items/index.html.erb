@@ -1,0 +1,4 @@
+ <%= link_to "Add one", line_item_add_path(:id => line_item), method: :post %>
+        <%= link_to "Reduce one", line_item_reduce_path(:id => line_item), method: :post %>
+
+        <%= link_to "Remove item", line_item_path(line_item), method: :delete %>
