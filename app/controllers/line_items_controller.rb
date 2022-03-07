@@ -1,4 +1,5 @@
 class LineItemsController < ApplicationController
+  before_action :set_line_item, only: %i[destroy add_quantity reduce_quantity]
   def index; end
 
   def create
@@ -18,13 +19,11 @@ class LineItemsController < ApplicationController
   end
 
   def destroy
-    @line_item = LineItem.find(params[:id])
     @line_item.destroy
     redirect_to cart_path(@current_cart)
   end
 
   def add_quantity
-    @line_item = LineItem.find(params[:id])
     @line_item.quantity = 0 if @line_item.quantity.nil?
     @line_item.quantity += 1
     @line_item.save
@@ -32,13 +31,16 @@ class LineItemsController < ApplicationController
   end
 
   def reduce_quantity
-    @line_item = LineItem.find(params[:id])
     @line_item.quantity -= 1 if @line_item.quantity > 1
     @line_item.save
     redirect_to cart_path(@current_cart)
   end
 
   private
+
+  def set_line_item
+    @line_item = LineItem.find(params[:id])
+  end
 
   def line_item_params
     params.require(:line_item).permit(:quantity, :product_id, :cart_id)

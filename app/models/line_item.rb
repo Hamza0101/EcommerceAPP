@@ -3,6 +3,6 @@ class LineItem < ApplicationRecord
   belongs_to :cart
 
   def total_price
-    quantity * product.price
+    quantity * product.price unless quantity.nil?
   end
 end
